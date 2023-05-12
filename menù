@@ -1,0 +1,20 @@
+scelta= int(input('Vuoi accedere al menù o uscire? Scegli 1 per uscire dal sistema o scegli 2 per entrare nel secondo menù'))
+while scelta==1:
+  break
+
+if scelta == 2: 
+     scelta_2= int(input(' Scegli 1 per svolgere addizione, Scegli 2 per svolgere una sottrazione,Scegli 3 per svolgere una moltiplicazione,Scegli 4 per una divisione o Scegli 5 per uscire e tornare al menù principale'))
+     if scelta_2 ==5:
+        scelta_2 = scelta
+     else:
+         x= float(input('Inserire un numero intero positivo,diverso da 0'))
+         y= float(input('Inserire un numero intero positivo,diverso da 0'))
+         if scelta_2==1:
+              print('La somma è:',x+y)
+         if scelta_2==2:
+              print('La differenza è:', x-y)
+         if scelta_2==3:
+              print('La moltiplicazione è:',x*y)
+         if scelta_2==4:
+              print('La divisione è:', x/y)     
+
