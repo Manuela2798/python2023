@@ -1,0 +1,8 @@
+# Scrivere un programma che prenda una lista di numeri come input e rimuove i duplicati dalla lista, lasciando solo i valori "unici". L'ordine degli elementi nella lista deve rimanere invariato
+
+stringa=input('Inserisci dei numeri da 1 a 9: ')  #inserisco in una variabile stringa la frase inserita dall'utente
+lista=[]  #creo lista vuota
+for numero in stringa:  #scorro tutta la stringa
+    if numero not in lista: #se il numero non è presente nella lista
+        lista.append(numero) #lo aggiungo con il comando append
+print(lista) #stampo la lista
