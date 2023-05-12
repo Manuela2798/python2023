@@ -1,0 +1,11 @@
+stringa=input('Inserisci una frase ')
+lista=stringa.split(' ')
+print (lista)
+dizionario={}
+
+for parola in lista:
+    if parola not in dizionario:
+        dizionario[parola]=1
+    else:
+        dizionario[parola]+=1
+print(dizionario)        
