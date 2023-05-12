@@ -1,11 +1,11 @@
-stringa=input('Inserisci una frase ')
-lista=stringa.split(' ')
-print (lista)
-dizionario={}
+stringa=input('Inserisci una frase ')  #inserisco in una variabile stringa la frase inserita dall'utente
+lista=stringa.split(' ')    #inserisco la variabile stringa in una lista,facendo espandere la lista
+print (lista)    #stampo la lista
+dizionario={}   #creo dizionario
 
-for parola in lista:
-    if parola not in dizionario:
-        dizionario[parola]=1
+for parola in lista:     #scorro tutta la lista
+    if parola not in dizionario:      #se la parola non è nel dizionario
+        dizionario[parola]=1     #aggiungo la parola nel dizionario assegnando valore 1
     else:
-        dizionario[parola]+=1
-print(dizionario)        
+        dizionario[parola]+=1    # se la parola si trova già nel dizionario somma al suo valore 1 un valore in più
+print(dizionario)        #stampo il dizionario        
