@@ -1,0 +1,8 @@
+dizionario={}  #creo un dizionario
+stringa=input('Inserisci delle parole')   #prendo in input la stringa dall'utente
+for parola in stringa:    # scorro ogni parola contenuta nella variabile stringa
+    if parola not in dizionario:  # se ogni parola non è contenuta nel dizionario
+        dizionario[parola]=1     #aggiungo la parola nel dizionario,dove parola diventa la chiave nel dizionario
+    else:
+        dizionario[parola]+=1    # altrimenti se la parola(chiave) è già presente conto l valore
+print(dizionario)        #stampo il dizionario,dove ad ogni chiave corrisponde il valore delle occorrenze delle lettere
