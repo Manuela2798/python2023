@@ -1,0 +1,24 @@
+dizionario_totale = {}
+bool='1'
+while bool =='1':
+  scelta= input('digitare 1 per inserire vendita'
+                'Digitare 2 per vedere il totale delle vendite'
+                'Digitare 0 per tornare indietro')
+  if scelta== '1':
+       dizionario={}
+       dizionario['prodotto'] = input('Inserisci il nome del prodotto ')
+       dizionario['quantità'] = int(input('Inserisci la quantità'))
+       dizionario['prezzo']=float(input('Inserisci il prezzo'))
+       if dizionario['prodotto'] not in dizionario_totale.keys():
+           dizionario_totale[dizionario['prodotto']]=dizionario['quantità']*dizionario['prezzo']
+       else:
+           dizionario_totale[dizionario['prodotto']]  += dizionario['quantità']*dizionario['prezzo']
+  elif scelta=='2':
+      print('Il totale delle vendite è: ',dizionario_totale)
+  elif scelta=='0':
+     bool='0' 
+
+  else:
+       print('Errore:hai inserito un numero non valido')   
+       
+
