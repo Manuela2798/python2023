@@ -1,0 +1,43 @@
+class Calcolatrice:
+   def somma(a,b):
+     return a+b
+
+   def moltiplicazione(a,b):
+     return a*b
+
+   def sottrazione(a,b):
+     return a-b
+
+print ("Benvenuto utente")
+print ("Operazioni disponibili:")
+print ("1) Somma")
+print ("2) Moltiplicazione")
+print ("3) Sottrazione")
+print ("0) Esci")
+scelta = int(input("Inserire una scelta valida: "))
+
+while scelta == 0:
+   break
+if scelta not in [1,2,3,4]:
+  print ("Operazione non disponibile\n")
+scelta = int(input("Inserire una scelta valida: "))
+a = int(input("Primo operando: "))
+b = int(input("Secondo operando: "))
+if (scelta == 1):
+ risultato=Calcolatrice.somma(a,b)
+ print ("La somma e' ", risultato)
+elif (scelta == 2):
+ risultato=Calcolatrice.moltiplicazione(a,b)
+ print ("La moltiplicazione e' ", risultato)
+elif (scelta == 3):
+ risultato=Calcolatrice.sottrazione(a,b)
+ print ("la sottrazione e' ",risultato)
+
+
+
+    
+    
+
+    
+
+
