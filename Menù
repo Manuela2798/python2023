@@ -1,0 +1,34 @@
+# MENU' DA DEGENERALIZZARE
+
+print("1) Addizione")
+print("2) Moltiplicazione")
+print("3) Divisione")
+print("4) Sottrazione")
+print("5) Esci")
+
+def switch (scelta):
+    while(scelta!= "5"):
+        scelta=input("Inserisci la risposta: ")
+        a=int(input("Inserisci primo valore: "))
+        b=int(input("Inserisci secondo valore: "))
+        if scelta == "1":
+            risultato= a+b
+            return risultato
+        elif scelta=="2":
+            risultato_2=a*b
+            return risultato_2
+        elif scelta=="3":
+            if b!=0:
+             risultato_3=a/b
+             return risultato_3
+            else:
+                print("Inserire numero valido diverso da 0")
+        elif scelta=="4":
+            risultato_4=a-b
+            return risultato_4
+        else:
+            continue
+scelta="ok"
+while(scelta != "5"):
+    scelta= input("Inserisci la risposta: ")
+    print(switch(scelta))
