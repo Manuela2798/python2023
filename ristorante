@@ -1,0 +1,115 @@
+
+def switch_primomenu():
+    scelta_1 = "ok"
+    while (scelta_1 != "U"):
+        print("Benvenuto nel primo menù: ")
+        print("Inserisci E per entrare nel secondo menù: ")
+        print("Inserisci U per uscire")
+        scelta_1 = input("Inserisci la tua scelta: ")
+        print()
+
+        if scelta_1 == "E":
+            switch_secondomenu()
+        elif scelta_1 == "U":
+            print("Arrivederci")
+            break
+        else:
+            print("Inserisci un carattere valido")
+            continue      
+
+def switch_secondomenu():
+    scelta="ok"
+    ordinazione=Ordinazione()
+    while (scelta != "4"):
+        print("Benvenuto nel nostro ristorante: ")
+        print("1. Prima opzione: Ordina un piatto")
+        print("2. Seconda opzione: Modifica un piatto")
+        print("3. Terza opzione: Stampa il conto")
+        print("4. Esci")
+        scelta=int(input("Inserisci la scelta: "))
+        if scelta == "1":  # si ordina il piatto
+          piatto=switch_piatto("Piatto da ordinare:")
+          ordinazione.ordinaPiatto(piatto)
+               
+        elif scelta =="2":
+            #si modifica il piatto
+            piatto=switch_piatto("Il piatto da modificare: ")
+            nome=input("Inserisci il nuovo nome del piatto: ")
+            prezzo=float(input("Inseirisci il nuovo prezzo: "))
+            piatto.modificaPiatto(nome)
+            piatto.modificaPrezzo(prezzo)
+            print("Modifica aavenuta")
+            
+        elif scelta =="3":
+            #stampa il conto
+            nome_Cliente=input("Inserisci il tuo nominativo: ")
+            ordinazione.cliente(nome_Cliente)
+            ordinazione.stampa_conto()
+            
+        elif scelta == "4":
+            break
+        else:
+            continue   
+       
+
+
+def switch_piatto(messaggio):
+    exit_flag = False
+    while not exit_flag:
+        print(messaggio)
+        opzione = 1
+        for piatto in menu:
+            print(f"{opzione}. {piatto.to_string()}")
+            opzione += 1
+
+        scelta_2 = int(input("Inserisci il numero del piatto: "))
+        print()
+        if scelta_2 >= 1 and scelta_2 <= len(menu):
+            return menu[scelta_2 - 1]
+        else:
+            print("Errore")
+            continue
+
+
+class Piatto:
+    nome=""
+    prezzo=0.0
+
+    def __int__(self,nome,prezzo):
+        self.nome=nome
+        self.prezzo=prezzo
+    def modificaPiatto(self,nome):
+        self.nome=nome
+    def modificaPrezzo(self,prezzo):
+        self.prezzo=prezzo
+    def stampa(self):
+       return f"Piatto: {self.nome} e il  Prezzo: {self.prezzo}"
+
+menu = [Piatto("Pasta", 18.0), Piatto("Carne", 22.0), Piatto("Pesce", 28.0), Piatto("Dolce", 15.0)]       
+
+class Ordinazione():
+    piatti=[]
+    nome_Cliente=""    
+
+    def __init__(self,piatti,nome_Cliente):
+        self.piatti=[] 
+        self.nome_Cliente=""
+
+    def ordinaPiatto(self,piatto):
+       if len(self.piatti) >= 4:
+            print("Errore, non puoi aggiungere altri piatti all'ordinazione")
+       else:
+            #aggiungo il piatto alle ordinazioni (nuovo oggetto! se no si modifica)
+            self.piatti.append(Piatto(piatto.nome, piatto.prezzo)) 
+    def spesa_totale(self):
+        spesa_totale=0.0
+        for piatto in self.piatti:
+            spesa_totale += piatto.prezzo
+        return spesa_totale
+    def cliente(self,nome_Cliente):
+        self.nome_Cliente=nome_Cliente
+    def stampa_conto(self):
+        print("Il conto di :", {self.nome_Cliente})
+        for piatto in self.piatti:
+           print("Il prezzo totale è: ", {self.spesa_totale()})
+switch_primomenu()
