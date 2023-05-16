@@ -57,17 +57,17 @@ def switch_primomenu():
         else:
             print("Inserisci un carattere valido")
             continue      
-def switch_secondomenu(scelta):
-    while scelta != 'esci':    
+def menu_cliente(scelta_4):
+    while scelta_4 != 'esci':    
         if scelta == 'ordina':
             nome = input('inserisci il nome del piatto che vuoi ordinare')
             cliente.ordina_piatto(nome)
             scelta = input('inserisci una nuova scelta: ')        
-        elif scelta == 'conto':
+        elif scelta_4 == 'conto':
             cliente.chiedi_il_conto()
             cliente.ordine.pulisci_ordine()
             scelta = 'esci'
-        elif scelta == 'esci':
+        elif scelta_4 == 'esci':
             cliente.ordine.pulisci_ordine()
             break
         else:
@@ -160,7 +160,7 @@ while flag:
             print('Conto')
             print('Esci')
             scelta = input()
-            menu_cliente(scelta)
+            menu_cliente(scelta_4)
         else:
             print('Inserisci opzione valida')       
     elif in_out == '2':
