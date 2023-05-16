@@ -76,18 +76,18 @@ def switch_secondomenu(scelta):
 class Proprietario:
     def aggiungi_piatto_nel_dizionario(self):
         nome = input('Inserisci il nome del nuovo piatto: ')  
-        if nome in diz_piatti.keys():
+        if nome in piatti.keys():
             print('Il piatto già presente nel menù ')
         else:    
             prezzo = float(input('Inserisci il prezzo del nuovo piatto: '))  
-            diz_piatti[nome] = prezzo   
+            piatti[nome] = prezzo   
 
     def elimina_piatto_dal_dizionario(self):
         nome = input('Inserisci il piatto che vuo eliminare: ')  
-        if nome not in diz_piatti.keys():
+        if nome not in piatti.keys():
             print('Il nome del non è presente nel menù ')
         else:      
-            del diz_piatti[nome]  #elimino il piatto dal menù 
+            del piatti[nome]  #elimino il piatto dal menù 
 
     def modifica_piatto(self,nome_piatto):
         print("Prima opzione: Premi 1 per modificare il nome del piatto")
@@ -96,42 +96,42 @@ class Proprietario:
         scelta_2 = int(input("Inserisci la risposta: "))
         if scelta_2 == 1:  #modifico il nome del piatto 
             nome= input(('Inserisci il nuovo nome del piatto: '))
-            diz_piatti[nome] = diz_piatti.pop(nome_piatto)
+            piatti[nome] = piatti.pop(nome_piatto)
         elif scelta_2 == 2: #modficare il prezzo del piatto
             prezzo = float(input('Inserisci il nuovo prezzodel piatto: '))
-            diz_piatti[nome_piatto] = prezzo
+            piatti[nome_piatto] = prezzo
         elif scelta_2 == 3: #modificare il nome e prezzo del piatto
             nome= input(('Inserisci il nuovo nomedel piatto: ')) 
             prezzo = float(input('Inserisci il nuovo prezzo del piatto: ')) 
-            diz_piatti[nome] = diz_piatti.pop(nome_piatto)
-            diz_piatti[nome] = prezzo
+            piatti[nome] = piatti.pop(nome_piatto)
+            piatti[nome] = prezzo
         else:
             print('Inserisci una risposta valida')   
 
     def visualizza_menu(self):
         print('il menu completo è: ')
-        print(diz_piatti)        
+        print(piatti)        
 
 proprietario=Proprietario()
 def menu_proprietario(scelta):
-    while (scelta_3 != 'esci'):    
-        if (scelta_3 == 'aggiungi'):
+    while (scelta_3 != 'Esci'):    
+        if (scelta_3 == 'Aggiungi'):
             proprietario.aggiungi_piatto_nel_dizionario()
             scelta_3 = input('Inserisci il piatto da aggiungere: ')        
-        elif (scelta_3 == 'elimina'):
+        elif (scelta_3 == 'Elimina'):
             proprietario.elimina_piatto_dal_dizionario()
             scelta_3 = input('Inserisci il piatto da eliminare ')
-        elif (scelta_3 == 'modifica'):
+        elif (scelta_3 == 'Modifica'):
             nome = input('inserisci il nome del piatto da modificare')
             if nome in diz_piatti.keys():
                 proprietario.modifica_piatto(nome)
             else:
                 print('Il piatto non è presente nel menù ')    
                 scelta_3 = input('Inserisci il piatto: ') 
-        elif (scelta_3 == 'visualizza'):
+        elif (scelta_3 == 'Visualizza'):
             proprietario.visualizza_menu()
             scelta_3 = input('Inserisci il menù da visualizzare ')  
-        elif (scelta_3 == 'esci'):
+        elif (scelta_3 == 'Esci'):
             break
         else:
             return 'Inserisci scelta valida'              
@@ -139,24 +139,31 @@ def menu_proprietario(scelta):
 flag = True
 while flag:
     print('Prima opzione: Inserisci 1 entrare nel menù,  Seconda opzione: Inserisci 2 per uscire')
-    entrata_uscita = input()
-    if entrata_uscita == '1':
+    in_out = input()
+    if in_out == '1':
         print('Benvenuto nel ristorante\n')
         scelta = input('Sei il proprietario del ristorante o il cliente? P per Proprietario o C per Cliente ')
         if scelta == 'P':
-            print('Fai la tua prima scelta tra modifica aggiungi elimina visualizza e esci')   
+            print('Inserisci una tra queste opzioni: ')
+            print('Modifica')
+            print('Aggiungi') 
+            print('Elimina')
+            print('Visualizza')
+            print('Esci')   
             scelta = input()
             menu_proprietario(scelta)
         elif scelta == 'C':
             scelta = cliente
             cliente.crea_profilo()
-            print('Fai la tua prima scelta tra ordina conto e esci')   
+            print('Inserisci opzione tra: '
+            print('Ordina') 
+            print('Conto')
+            print('Esci')
             scelta = input()
             menu_cliente(scelta)
         else:
             print('Inserisci opzione valida')       
-    elif entrata_uscita == '2':
+    elif in_out == '2':
         print('Arrivederci')
-        flag = False             
-         
-     
+        flag = False               
+        
