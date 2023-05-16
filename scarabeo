@@ -1,0 +1,16 @@
+        
+#randomizzare 4 lettere sull'alfabeto va fatta stampare una parola
+
+import random
+import string
+
+def get_random_string(length):
+    
+    lettere = string.ascii_lowercase
+    result_str = ''.join(random.choice(lettere) for i in range(length))
+    print("Random string of length", length, "is:", result_str)
+
+get_random_string(4)
+get_random_string(4)
+get_random_string(4)
+get_random_string(4)
