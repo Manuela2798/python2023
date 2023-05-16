@@ -12,7 +12,7 @@ class Utente:
         return persona
     ordine = ordinazione()
     def ordina_piatto(self,nome):
-        if nome not in diz_piatti.keys():
+        if nome not in piatti.keys():
             print('Non è possibile ordinare questo piatto')
         else:
             if len(self.ordine.lista_ordine)>0:
@@ -20,8 +20,8 @@ class Utente:
                 self.ordine.spesa += piatti[nome_piatto]
                 print(ordinato.lista_ordine)
             else:
-                self.ordine.lista_ordine = [[nome_piatto,diz_piatti[nome_piatto] ]]
-                self.ordine.spesa += diz_piatti[nome_piatto]  
+                self.ordine.lista_ordine = [[nome_piatto,piatti[nome_piatto] ]]
+                self.ordine.spesa += piatti[nome_piatto]  
                 print(ordinato.lista_ordine)
    class Ordinazione:
     lista_ordine = []
