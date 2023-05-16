@@ -1,16 +1,16 @@
-
 #menu fisso
 
 piatti = {'Pasta':18.5,'Carne':22.0,'Pesce':32.0,'Dolce':13.0}
 
+#creo classe Utente
 
 class Utente:
-    def crea_Utente(self):
+    def crea_Utente(self):                          #funzione crea_Utente
         nome = input('Inserisci il tuo nome')
         cognome = input('Inserisci il tuo cognome')
         persona = nome + ' ' + cognome  
         return persona
-    ordine = ordinazione()
+    
     def ordina_piatto(self,nome):
         if nome not in piatti.keys():
             print('Non è possibile ordinare questo piatto')
@@ -23,7 +23,7 @@ class Utente:
                 self.ordine.lista_ordine = [[nome_piatto,piatti[nome_piatto] ]]
                 self.ordine.spesa += piatti[nome_piatto]  
                 print(ordinato.lista_ordine)
-   class Ordinazione:
+class Ordinazione:
     lista_ordine = []
     spesa_totale = 0
     def pulisci_ordine(self):
@@ -34,8 +34,8 @@ class Utente:
         for elemento in self.ordine.lista_ordine:
             print(elemento[0])
         print(f' Il totale corrisponde a : Euro {self.ordine.spesa}')    
-
-cliente = Utente()
+ordine = Ordinazione()                        #inizializzo oggetto ordine
+cliente = Utente()                            #inizializzo oggetto cliente
 def switch_primomenu():
     scelta_1 = "ok"
     while (scelta_1 != "U"):
@@ -158,4 +158,5 @@ while flag:
     elif entrata_uscita == '2':
         print('Arrivederci')
         flag = False             
+         
      
