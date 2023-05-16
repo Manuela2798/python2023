@@ -1,0 +1,7 @@
+import random
+
+def dado():
+    return random.randint(1,20)
+
+risultato = dado()
+print(risultato)   
