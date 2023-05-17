@@ -1,0 +1,41 @@
+class Veicolo:
+    def __init__(self, marca, modello, anno):
+        self.marca = marca
+        self.modello = modello
+        self.anno = anno
+    
+    def accelera(self):
+        print("Sto accelerando")
+    
+    def frena(self):
+        print("Sto frenando")
+    
+    def __str__(self):
+        return f"Marca: {self.marca}, Modello: {self.modello}, Anno: {self.anno}"
+
+class Auto(Veicolo):
+    def __init__(self, marca, modello, anno, colore):
+        super().__init__(marca, modello, anno)
+        self.colore = colore
+    
+    def cambia_colore(self, nuovo_colore):
+        self.colore = nuovo_colore
+    
+    def __str__(self):
+        return super().__str__() + f", Colore: {self.colore}"
+class Moto(Veicolo):
+    def __init__(self, marca, modello, anno, tipo):
+        super().__init__(marca, modello, anno)
+        self.tipo = tipo
+    
+    def nuovo_tipo(self, tipo):
+        self.tipo=tipo
+    
+    def __str__(self):
+        return super().__str__() + f", Tipo: {self.tipo}"
+
+auto= Auto("Ferrari","F140","2000","Rossa")
+print(auto.__str__())
+
+moto=Moto("Honda","125cc","2001","2")
+print(moto.__str__())
