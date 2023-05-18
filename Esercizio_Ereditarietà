@@ -1,0 +1,92 @@
+# creare un menù che permetta di scegliere se creare una moto o auto con 
+# caratteristiche di marca e modello e che usì l'ereditarietà da veicolo ai figli
+
+lista_veicoli=[]
+
+def switch():
+ accensione=True
+ while accensione:
+    print('Benvenuto')
+    print('1.Crea una moto')
+    print('2.Crea auto')
+    print('3.Visualizza veicoli')
+    print('0.Esci')
+    scelta=input("Inserisci la risposta: ")
+    print()
+        
+    if scelta == "0":
+            accensione=False
+        
+    elif scelta=="1":
+            #crea moto
+        marca=input('Inserisci marca moto')
+        modello=input('Inserisci modello moto')
+        anno=input('Inserisci anno')
+        tipo=input('Inserisi il tipo di moto')
+        #creazione oggetto moto
+        oggetto_moto=Moto(marca,modello,anno,tipo)  #passiamo marca e modello creati 
+        lista_veicoli.append(oggetto_moto) #li inseriamo in una lista 
+    elif scelta=="2":
+            #crea auto
+        marca=input('Inserisci marca auto')
+        modello=input('Inserisci modello auto')
+        anno=input('Inserisci anno')
+        colore=input('Inserisci colore auto')
+        oggetto_auto=Auto(marca,modello,anno,tipo) #passiamo marca e modello creati 
+        lista_veicoli.append(oggetto_auto)  #li inseriamo in una lista creata
+    elif scelta=="3" :
+            #visualizza veicoli
+        if (lista_veicoli== []):
+                print("Non hai creato nessun veicolo")
+        else:
+            for elemento in lista_veicoli: #per ogni elemento in lista  # con metodo to string stampiamo marca e modello
+                print(elemento.__str__())    
+
+    else:
+            #errore input
+            print('Errore,opzione non valida')
+
+
+
+# attributo di classe quando sarà condiviso tra gli oggetti nella classe
+class Veicolo:
+    def __init__(self, marca, modello, anno):
+        self.marca = marca   #valore personalizzato per ogni oggetto #a destra quello che passo al costruttore
+                             #tramite oggetto=Veicolo("Volvo") è volvo
+                             #che si attacca al self.marca e quindi si può stampare
+                             #self.marca è il nome che dò io
+        self.modello = modello
+        self.anno = anno
+    
+    def __str__(self):
+        return f"Marca: {self.marca}, Modello: {self.modello}, Anno: {self.anno}"
+
+class Auto(Veicolo):
+    def __init__(self, marca, modello, anno, colore):
+        super().__init__(marca, modello, anno)
+        self.colore = colore
+    
+    def cambia_colore(self, nuovo_colore):
+        self.colore = nuovo_colore
+    
+    def __str__(self):
+        return f"Auto: " + super().__str__() + f"Colore: {self.colore}"
+
+class Moto(Veicolo):
+    def __init__(self, marca, modello, anno, tipo):
+        super().__init__(marca, modello, anno)
+        self.tipo = tipo
+    
+    def nuovo_tipo(self, tipo):
+        self.tipo=tipo
+    
+    def __str__(self):
+        return super().__str__() + f" Tipo: {self.tipo}"
+
+switch()
+#test
+#auto= Auto("Ferrari","F140","2000","Rossa")
+#print(auto.__str__())
+#test
+#moto=Moto("Honda","125cc","2001","2")
+#print(moto.__str__())
